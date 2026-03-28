@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Currency Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for a clean look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-decor"></div>
+    
+    <div class="converter-card">
+        <h1>Currency Converter</h1>
+        <p class="subtitle">Fast, simple, and accurate conversions</p>
+
+        <div class="input-group">
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" placeholder="Enter amount..." value="1.00">
+        </div>
+
+        <div class="selection-row">
+            <div class="input-group">
+                <label for="from">From</label>
+                <select id="from">
+                    <option value="USD" selected>USD - US Dollar</option>
+                    <option value="EUR">EUR - Euro</option>
+                    <option value="INR">INR - Indian Rupee</option>
+                    <option value="JPY">JPY - Japanese Yen</option>
+                    <option value="AUD">AUD - Australian Dollar</option>
+                    <option value="CAD">CAD - Canadian Dollar</option>
+                    <option value="CNY">CNY - Chinese Yuan</option>
+                    <option value="NPR">NPR - Nepalese Rupee</option>
+                    <option value="KRW">KRW - South Korean Won</option>
+                    <option value="AED">AED - UAE Dirham</option>
+                </select>
+            </div>
+
+            <div class="swap-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 16 3-3-3-3"/><path d="M17 8 14 11l3 3"/><path d="M2 12h20"/></svg>
+            </div>
+
+            <div class="input-group">
+                <label for="to">To</label>
+                <select id="to">
+                    <option value="INR" selected>INR - Indian Rupee</option>
+                    <option value="USD">USD - US Dollar</option>
+                    <option value="EUR">EUR - Euro</option>
+                    <option value="JPY">JPY - Japanese Yen</option>
+                    <option value="AUD">AUD - Australian Dollar</option>
+                    <option value="CAD">CAD - Canadian Dollar</option>
+                    <option value="CNY">CNY - Chinese Yuan</option>
+                    <option value="NPR">NPR - Nepalese Rupee</option>
+                    <option value="KRW">KRW - South Korean Won</option>
+                    <option value="AED">AED - UAE Dirham</option>
+                </select>
+            </div>
+        </div>
+
+        <button id="convert-btn">Convert Now</button>
+
+        <div class="result-display" id="result-container">
+            <p id="result-text">1.00 USD = 85.86 INR</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
