@@ -1,70 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Currency Converter</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts for a clean look -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FX Live — Currency Converter</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="background-decor"></div>
-    
-    <div class="converter-card">
-        <h1>Currency Converter</h1>
-        <p class="subtitle">Fast, simple, and accurate conversions</p>
 
-        <div class="input-group">
-            <label for="amount">Amount</label>
-            <input type="number" id="amount" placeholder="Enter amount..." value="1.00">
-        </div>
+  <div class="ticker-bar">
+    <div id="ticker-track"><span>Loading live rates…</span></div>
+  </div>
 
-        <div class="selection-row">
-            <div class="input-group">
-                <label for="from">From</label>
-                <select id="from">
-                    <option value="USD" selected>USD - US Dollar</option>
-                    <option value="EUR">EUR - Euro</option>
-                    <option value="INR">INR - Indian Rupee</option>
-                    <option value="JPY">JPY - Japanese Yen</option>
-                    <option value="AUD">AUD - Australian Dollar</option>
-                    <option value="CAD">CAD - Canadian Dollar</option>
-                    <option value="CNY">CNY - Chinese Yuan</option>
-                    <option value="NPR">NPR - Nepalese Rupee</option>
-                    <option value="KRW">KRW - South Korean Won</option>
-                    <option value="AED">AED - UAE Dirham</option>
-                </select>
-            </div>
+  <div class="converter-card">
 
-            <div class="swap-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 16 3-3-3-3"/><path d="M17 8 14 11l3 3"/><path d="M2 12h20"/></svg>
-            </div>
-
-            <div class="input-group">
-                <label for="to">To</label>
-                <select id="to">
-                    <option value="INR" selected>INR - Indian Rupee</option>
-                    <option value="USD">USD - US Dollar</option>
-                    <option value="EUR">EUR - Euro</option>
-                    <option value="JPY">JPY - Japanese Yen</option>
-                    <option value="AUD">AUD - Australian Dollar</option>
-                    <option value="CAD">CAD - Canadian Dollar</option>
-                    <option value="CNY">CNY - Chinese Yuan</option>
-                    <option value="NPR">NPR - Nepalese Rupee</option>
-                    <option value="KRW">KRW - South Korean Won</option>
-                    <option value="AED">AED - UAE Dirham</option>
-                </select>
-            </div>
-        </div>
-
-        <button id="convert-btn">Convert Now</button>
-
-        <div class="result-display" id="result-container">
-            <p id="result-text">1.00 USD = 85.86 INR</p>
-        </div>
+    <div class="card-header">
+      <div class="logo-dot"></div>
+      <span class="logo-text">FX Live</span>
+      <span class="live-badge" id="live-badge">● Live</span>
     </div>
 
-    <script src="script.js"></script>
+    <h1>Currency Converter</h1>
+    <p class="subtitle">Real-time exchange rates</p>
+
+    <div class="input-group">
+      <label for="amount">Amount</label>
+      <input type="number" id="amount" placeholder="0" value="1" min="0" step="any">
+    </div>
+
+    <div class="selection-row">
+      <div class="input-group">
+        <label for="from">From</label>
+        <select id="from">
+          <option value="USD" selected>🇺🇸 USD — US Dollar</option>
+          <option value="EUR">🇪🇺 EUR — Euro</option>
+          <option value="INR">🇮🇳 INR — Indian Rupee</option>
+          <option value="JPY">🇯🇵 JPY — Japanese Yen</option>
+          <option value="AUD">🇦🇺 AUD — Australian Dollar</option>
+          <option value="CAD">🇨🇦 CAD — Canadian Dollar</option>
+          <option value="CNY">🇨🇳 CNY — Chinese Yuan</option>
+          <option value="NPR">🇳🇵 NPR — Nepalese Rupee</option>
+          <option value="KRW">🇰🇷 KRW — South Korean Won</option>
+          <option value="AED">🇦🇪 AED — UAE Dirham</option>
+          <option value="GBP">🇬🇧 GBP — British Pound</option>
+          <option value="CHF">🇨🇭 CHF — Swiss Franc</option>
+          <option value="SGD">🇸🇬 SGD — Singapore Dollar</option>
+          <option value="MYR">🇲🇾 MYR — Malaysian Ringgit</option>
+          <option value="THB">🇹🇭 THB — Thai Baht</option>
+        </select>
+      </div>
+
+      <div class="swap-icon" id="swap-btn" role="button" title="Swap currencies">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 16V4m0 0L3 8m4-4 4 4"/><path d="M17 8v12m0 0 4-4m-4 4-4-4"/>
+        </svg>
+      </div>
+
+      <div class="input-group">
+        <label for="to">To</label>
+        <select id="to">
+          <option value="USD">🇺🇸 USD — US Dollar</option>
+          <option value="EUR">🇪🇺 EUR — Euro</option>
+          <option value="INR">🇮🇳 INR — Indian Rupee</option>
+          <option value="JPY">🇯🇵 JPY — Japanese Yen</option>
+          <option value="AUD">🇦🇺 AUD — Australian Dollar</option>
+          <option value="CAD">🇨🇦 CAD — Canadian Dollar</option>
+          <option value="CNY">🇨🇳 CNY — Chinese Yuan</option>
+          <option value="NPR" selected>🇳🇵 NPR — Nepalese Rupee</option>
+          <option value="KRW">🇰🇷 KRW — South Korean Won</option>
+          <option value="AED">🇦🇪 AED — UAE Dirham</option>
+          <option value="GBP">🇬🇧 GBP — British Pound</option>
+          <option value="CHF">🇨🇭 CHF — Swiss Franc</option>
+          <option value="SGD">🇸🇬 SGD — Singapore Dollar</option>
+          <option value="MYR">🇲🇾 MYR — Malaysian Ringgit</option>
+          <option value="THB">🇹🇭 THB — Thai Baht</option>
+        </select>
+      </div>
+    </div>
+
+    <button id="convert-btn">Convert Now</button>
+
+    <div class="result-display" id="result-container">
+      <p id="result-text">Enter an amount to convert</p>
+      <p id="inverse-rate"></p>
+    </div>
+
+    <div class="refresh-row">
+      <span id="rate-status" class="rate-badge">Connecting…</span>
+      <span id="last-updated"></span>
+      <button id="refresh-btn">↻ Refresh rates</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
